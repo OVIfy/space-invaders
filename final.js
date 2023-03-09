@@ -210,9 +210,17 @@ function draw(){
     game.draw() 
 }
 
+let j = -1
 function mouseReleased(){
-    if(game.gameState == 'game')
-    swarm.shootShip('single')
+ 
+    if(game.gameState == 'game'){
+        j++
+        if(j == 3)
+        swarm.shootShip('single')
+    }
+    if(j == 3)
+        j = 0
+  
 }
 
 function mouseClicked(event) {
@@ -237,7 +245,7 @@ function mousePressed(event){
         newBullet.stroke = '#90EE90'
         newBullet.move(1000, 'up', 20)
         playerBullets.add(newBullet)
-        spaceship.moveTo(constrain(mouse.x, 0 + spaceship.hw, width - spaceship.hw), height - spaceship.hh, 20)  
+        // spaceship.moveTo(constrain(mouse.x, 0 + spaceship.hw, width - spaceship.hw), height - spaceship.hh, 20)  
     }
 
     if(game.gameState == 'start')
