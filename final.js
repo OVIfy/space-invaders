@@ -185,7 +185,7 @@ class Game{
 
         if(this.#gamestate == 'game'){
             background(0)
-            spaceship.moveTo(constrain(mouse.x, 0 + spaceship.hw, width - spaceship.hw), height - spaceship.hh, 10)  
+            spaceship.moveTo(constrain(mouse.x, 0 + spaceship.hw, width - spaceship.hw), height - spaceship.hh, 20)  
         }
 
         if(this.#gamestate == 'game-over')
@@ -195,6 +195,11 @@ class Game{
 }
 
 function setup(){
+    if (windowWidth > 700){
+        createCanvas(700,500)
+        gridSize = 30
+    }
+    else
     createCanvas(windowWidth - 18,500)
     game = new Game()
 }
@@ -230,9 +235,9 @@ function mousePressed(event){
     if(game.gameState == 'game'){
         let newBullet = new Sprite(spaceship.x, spaceship.y, 1, 5)
         newBullet.stroke = '#90EE90'
-        newBullet.velocity.y = -10
+        newBullet.move(1000, 'up', 20)
         playerBullets.add(newBullet)
-        spaceship.moveTo(constrain(mouse.x, 0 + spaceship.hw, width - spaceship.hw), height - spaceship.hh, 10)  
+        spaceship.moveTo(constrain(mouse.x, 0 + spaceship.hw, width - spaceship.hw), height - spaceship.hh, 20)  
     }
 
     if(game.gameState == 'start')
