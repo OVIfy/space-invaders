@@ -111,12 +111,12 @@ class Game{
         swarm.moveAliens()
 
         setInterval(()=>{
-            swarm.shootShip('single')
+            swarm.shootShip()
         }, 800)
 
-        setInterval(()=>{
-            swarm.shootShip()
-        }, 1200)
+        // setInterval(()=>{
+        //     swarm.shootShip('single')
+        // }, 1200)
     }
 
     preStart(){
@@ -214,10 +214,6 @@ function draw(){
     game.draw() 
 }
 
-function mouseClicked(event) {
-    //creating new bullets on user click
-    
-}
 
 function mousePressed(event){
     console.log('pressed')
