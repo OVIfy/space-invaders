@@ -112,7 +112,11 @@ class Game{
 
         setInterval(()=>{
             swarm.shootShip('single')
-        }, 1000)
+        }, 800)
+
+        setInterval(()=>{
+            swarm.shootShip()
+        }, 1200)
     }
 
     preStart(){
@@ -208,19 +212,6 @@ function draw(){
     clear()
     // background(150)
     game.draw() 
-}
-
-let j = -1
-function mouseReleased(){
- 
-    if(game.gameState == 'game'){
-        j++
-        if(j == 3)
-        swarm.shootShip('single')
-    }
-    if(j == 3)
-        j = 0
-  
 }
 
 function mouseClicked(event) {
